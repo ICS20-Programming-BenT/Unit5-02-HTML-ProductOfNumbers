@@ -15,10 +15,23 @@ function IntegersGiven() {
   let firstNum = parseInt(document.getElementById("first-number").value);
   let secondNum = parseInt(document.getElementById("second-number").value);
 
+  
+  let absoluteFirstNum = Math.abs(firstNum);
+  let absoluteSecondNum = Math.abs(secondNum);
+
   //for loop to do repeated addition to find the product
-  for (let counter = 1; counter <= secondNum; counter++) {
-    product = product + firstNum;
+  for (let counter = 1; counter <= absoluteSecondNum; counter++) {
+    product = product + absoluteFirstNum;
   }
+
+  if (firstNum < 0) {
+    product = product * -1;
+  }
+
+  if (secondNum < 0) {
+    product = product * -1;
+  }
+
   //displaying the sum/product to the screen
   document.getElementById("results").innerHTML = "The product of your selected two numbers is " + product + ".";
 }
