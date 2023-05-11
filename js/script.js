@@ -37,6 +37,6 @@ function IntegersGiven() {
     }
 
     //displaying the sum/product to the screen
-    document.getElementById("results").innerHTML = "The product of your selected two numbers is " + product + ".";
+    document.getElementById("results").innerHTML = "The product of " + firstNum + " and " + secondNum + " is " + product + ".";
   }
 }
