@@ -15,23 +15,32 @@ function IntegersGiven() {
   let firstNum = parseInt(document.getElementById("first-number").value);
   let secondNum = parseInt(document.getElementById("second-number").value);
 
-  
+  // Removing any negative signs from numbers in order to be able to calculate using repeated addition
   let absoluteFirstNum = Math.abs(firstNum);
   let absoluteSecondNum = Math.abs(secondNum);
 
-  //for loop to do repeated addition to find the product
-  for (let counter = 1; counter <= absoluteSecondNum; counter++) {
-    product = product + absoluteFirstNum;
+  // If the user does not enter their min and max, display that they must enter both numbers
+  if ((isNaN(firstNum)) || (isNaN(secondNum))) {
+    document.getElementById("results").innerHTML = "Please enter integers in both text fields.";
   }
 
-  if (firstNum < 0) {
-    product = product * -1;
-  }
+  // Otherwise, continue the function to calculate the product
+  else {
+    // For loop to do repeated addition to find the product
+    for (let counter = 0; counter < absoluteSecondNum; counter++) {
+      product = product + absoluteFirstNum;
+    }
+  
+    // If statements: Reapplying the negative sign if either the first or second number is negative
+    if (firstNum < 0) {
+      product = product * -1;
+    }
+  
+    if (secondNum < 0) {
+      product = product * -1;
+    }
 
-  if (secondNum < 0) {
-    product = product * -1;
+    //displaying the sum/product to the screen
+    document.getElementById("results").innerHTML = "The product of your selected two numbers is " + product + ".";
   }
-
-  //displaying the sum/product to the screen
-  document.getElementById("results").innerHTML = "The product of your selected two numbers is " + product + ".";
 }
