@@ -31,12 +31,8 @@ function IntegersGiven() {
       product = product + absoluteFirstNum;
     }
   
-    // If statements: Reapplying the negative sign if either the first or second number is negative
-    if (firstNum < 0) {
-      product = product * -1;
-    }
-  
-    if (secondNum < 0) {
+    //If statement to make sure that if one of the numbers is negative, the product will be negative
+    if ((firstNum < 0 && secondNum > 0) || (firstNum > 0 && secondNum < 0)) {
       product = product * -1;
     }
 
